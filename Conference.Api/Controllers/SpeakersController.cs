@@ -1,45 +1,73 @@
-﻿using Conference.Api.Models;
+﻿using Asp.Versioning;
+using AutoMapper;
+using Conference.Api.Infrastructure.Attributes;
+using Conference.Api.Infrastructure.Conventions;
+using Conference.Api.Models;
+using Conference.Domain.Entities;
+using Conference.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Conference.Api.Controllers;
 
-[Route("api/[controller]")]
+//[Route("api/[controller]")]
+[ApiConventionType(typeof(MyApiConventions))]
+[ApiVersion("1.0")]
+[Route("api/speakers")]
 [ApiController]
 public class SpeakersController : ControllerBase
 {
-    private readonly List<SpeakerModel> SpeakersList;
+    private readonly IMapper mapper;
 
-    public SpeakersController()
+    private readonly ISpeakersService speakersService;
+
+    public SpeakersController(ISpeakersService speakersService, IMapper mapper)
     {
-        SpeakersList = new List<SpeakerModel>
-        {
-            new()
-            {
-                Email = "speaker1@mail.com",
-                FirstName = "FirstName1",
-                LastName = "LastName1",
-                Id = 1
-            },
-            new()
-            {
-                Email = "speaker2@mail.com",
-                FirstName = "FirstName2",
-                LastName = "LastName2",
-                Id = 2
-            }
-        };
+        this.speakersService = speakersService;
+        this.mapper = mapper;
     }
 
+    /// <summary>
+    ///     Returns all speakers filtered by country
+    /// </summary>
+    /// <param name="country"></param>
+    /// <returns>A list of SpeakerModel</returns>
     [HttpGet]
-    public IActionResult GetAll()
+    [CommaQueryString]
+    //[ApiConventionMethod(typeof(DefaultApiConventions),
+    //             nameof(DefaultApiConventions.Get))]
+    public ActionResult<IEnumerable<SpeakerModel>> GetAll([FromQuery] List<string>? country)
     {
-        return Ok(SpeakersList);
+        var speakers = speakersService.GetAll();
+        var speakerModels = mapper.Map<IEnumerable<SpeakerModel>>(speakers);
+        return Ok(speakerModels);
     }
 
+    /// <summary>
+    ///     Searches and returns a speaker by an id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>A SpeakerModel</returns>
+    /// <remarks>
+    ///     Sample request:
+    ///     GET /Speakers/2
+    /// </remarks>
+    /// <example>
+    /// </example>
+    /// <response code="200">Returns the Speaker</response>
+    /// <response code="404">If the id is not found</response>
     [HttpGet("{id}")]
-    public IActionResult GetbyId(int id)
+    public IActionResult Find(int id)
     {
-        var speakerToReturn = SpeakersList.FirstOrDefault(x => x.Id == id);
+        var speakerToReturn = speakersService.Get(id);
+        if (speakerToReturn == null) return NotFound();
+        return Ok(speakerToReturn);
+    }
+
+
+    [HttpGet("{email:email}")]
+    public IActionResult GetByEmail(string email)
+    {
+        Speaker speakerToReturn = null; //speakersService.Get(id);
         if (speakerToReturn == null) return NotFound();
         return Ok(speakerToReturn);
     }
@@ -47,52 +75,62 @@ public class SpeakersController : ControllerBase
     [HttpHead("{id}")]
     public IActionResult CheckIfExists(int id)
     {
-        var speakerToReturn = SpeakersList.FirstOrDefault(x => x.Id == id);
-        if (speakerToReturn == null) return NotFound();
-        return Ok(speakerToReturn);
+        var speakerToReturn = speakersService.CheckIfExists(id);
+        if (!speakerToReturn) return NotFound();
+        return Ok();
     }
 
     [HttpPut("{id}")]
     public IActionResult Update(int id, SpeakerModel model)
     {
-        var speakerFromDb = SpeakersList.FirstOrDefault(x => x.Id == id);
+        var speakerFromDb = speakersService.Get(id);
         if (speakerFromDb == null) return NotFound();
         TryUpdateModelAsync(speakerFromDb);
+        speakersService.Update(speakerFromDb);
         //update in the database
         return Ok(speakerFromDb);
     }
 
+    /// <summary>
+    ///     Creates a new Speaker
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns></returns>
+    /// <remarks>
+    ///     Sample request:
+    ///     POST /Speakers
+    ///     {
+    ///     "firstName": "string",
+    ///     "lastName": "string",
+    ///     "email": "user@example.com",
+    ///     "website": "string",
+    ///     "city": "string",
+    ///     "country": "string"
+    ///     }
+    /// </remarks>
     [HttpPost]
     public IActionResult Post(SpeakerModel model)
     {
-        //not necessary now
-        if (!ModelState.IsValid) return BadRequest();
-
-        //if (SpeakersList.Any(x=>x.Email==model.Email))
-        //{
-        //    return Conflict("Email field should be unique");
-        //}
-
-        if (SpeakersList.Any(x => x.Email == model.Email))
+        if (!speakersService.IsEmailUnique(model.Email))
         {
             ModelState.AddModelError(nameof(model.Email), "Email field should be unique");
             return Conflict(ModelState);
         }
 
-        //assign an Id
-        model.Id = SpeakersList.Max(x => x.Id + 1);
-        //add  in the 'db'
-        SpeakersList.Add(model);
+        ///transform the entity from model to domain
+        var speakerToAdd = mapper.Map<Speaker>(model);
+        speakersService.Add(speakerToAdd);
+
         //return the item with the new assigned id
-        return CreatedAtAction(nameof(GetbyId), new { id = model.Id }, model);
+        return CreatedAtAction(nameof(Find), new { id = speakerToAdd.Id }, speakerToAdd);
     }
 
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        var speakerFromDb = SpeakersList.FirstOrDefault(x => x.Id == id);
+        var speakerFromDb = speakersService.Get(id);
         if (speakerFromDb == null) return NotFound();
-        SpeakersList.Remove(speakerFromDb);
+        speakersService.Delete(speakerFromDb);
         return NoContent();
     }
 }

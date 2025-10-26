@@ -1,0 +1,15 @@
+D:\Projects\ConferenceApi\Conference.Domain\bin\Debug\net9.0\Conference.Domain.deps.json
+D:\Projects\ConferenceApi\Conference.Domain\bin\Debug\net9.0\Conference.Domain.runtimeconfig.json
+D:\Projects\ConferenceApi\Conference.Domain\bin\Debug\net9.0\Conference.Domain.dll
+D:\Projects\ConferenceApi\Conference.Domain\bin\Debug\net9.0\Conference.Domain.pdb
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\Conference.Domain.csproj.AssemblyReference.cache
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\Conference.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\Conference.Domain.AssemblyInfoInputs.cache
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\Conference.Domain.AssemblyInfo.cs
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\Conference.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\Conference.Domain.sourcelink.json
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\Conference.Domain.dll
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\refint\Conference.Domain.dll
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\Conference.Domain.pdb
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\Conference.Domain.genruntimeconfig.cache
+D:\Projects\ConferenceApi\Conference.Domain\obj\Debug\net9.0\ref\Conference.Domain.dll

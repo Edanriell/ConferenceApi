@@ -1,6 +1,12 @@
-﻿namespace Conference.Api.Controllers;
+﻿using Microsoft.AspNetCore.Mvc;
 
-public class ValuesController
+namespace Conference.Api.Controllers;
+
+public class ValuesController : ControllerBase
 {
-    
+    [HttpGet]
+    public IActionResult GetAll()
+    {
+        return Ok("get all test route");
+    }
 }

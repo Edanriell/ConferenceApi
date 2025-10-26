@@ -1,0 +1,16 @@
+D:\Projects\ConferenceApi\Conference.Data\bin\Debug\net9.0\Conference.Data.deps.json
+D:\Projects\ConferenceApi\Conference.Data\bin\Debug\net9.0\Conference.Data.dll
+D:\Projects\ConferenceApi\Conference.Data\bin\Debug\net9.0\Conference.Data.pdb
+D:\Projects\ConferenceApi\Conference.Data\bin\Debug\net9.0\Conference.Domain.dll
+D:\Projects\ConferenceApi\Conference.Data\bin\Debug\net9.0\Conference.Domain.pdb
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\Conference.Data.csproj.AssemblyReference.cache
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\Conference.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\Conference.Data.AssemblyInfoInputs.cache
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\Conference.Data.AssemblyInfo.cs
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\Conference.Data.csproj.CoreCompileInputs.cache
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\Conference.Data.sourcelink.json
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\Conferen.C1903858.Up2Date
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\Conference.Data.dll
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\refint\Conference.Data.dll
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\Conference.Data.pdb
+D:\Projects\ConferenceApi\Conference.Data\obj\Debug\net9.0\ref\Conference.Data.dll

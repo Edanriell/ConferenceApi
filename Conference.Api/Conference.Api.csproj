@@ -6,14 +6,14 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
- 
+
     <ItemGroup>
-        <PackageReference Include="Asp.Versioning.Abstractions" Version="8.1.0" />
-        <PackageReference Include="Asp.Versioning.Http" Version="8.1.0" />
+        <PackageReference Include="Asp.Versioning.Abstractions" Version="8.1.0"/>
+        <PackageReference Include="Asp.Versioning.Http" Version="8.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
-        <PackageReference Include="AutoMapper" Version="15.1.0" />
-        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+        <PackageReference Include="AutoMapper" Version="15.1.0"/>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1"/>
         <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.10"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10"/>
@@ -25,10 +25,10 @@
         <PackageReference Include="Scalar.AspNetCore" Version="2.9.0"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6"/>
     </ItemGroup>
- 
+
     <ItemGroup>
-      <ProjectReference Include="..\Conference.Domain\Conference.Domain.csproj" />
-      <ProjectReference Include="..\Conference.Service\Conference.Service.csproj" />
+        <ProjectReference Include="..\Conference.Domain\Conference.Domain.csproj"/>
+        <ProjectReference Include="..\Conference.Service\Conference.Service.csproj"/>
     </ItemGroup>
 
 </Project>

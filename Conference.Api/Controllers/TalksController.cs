@@ -1,6 +1,8 @@
-﻿namespace Conference.Api.Controllers;
+﻿using Microsoft.AspNetCore.Mvc;
 
-public class TalksController
+namespace Conference.Api.Controllers;
+
+[ApiController]
+public class TalksController : ControllerBase
 {
-    
 }
