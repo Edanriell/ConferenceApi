@@ -17,7 +17,7 @@ public static class DataSeeder
 
     private static List<Speaker> LoadSpeakers()
     {
-        var jsonPath = @"D:\Projects\ConferenceApi\Conference.Domain\data.json";
+        var jsonPath = @"D:\Projects\Conference.Api\Conference.Domain\data.json";
         using (var file = File.OpenText(jsonPath))
         {
             var serializer = new JsonSerializer();

@@ -1,10 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferenceApi", "ConferenceApi\ConferenceApi.csproj", "{D4C33E3F-1B9B-4BA7-B996-260E107EEBD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conference.Api", "Conference.Api\Conference.Api.csproj", "{D4C33E3F-1B9B-4BA7-B996-260E107EEBD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conference.Domain", "Conference.Domain\Conference.Domain.csproj", "{0EFA573A-6D50-4F35-8605-11F960CE11FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conference.Data", "Conference.Data\Conference.Data.csproj", "{E423F1A3-C519-4377-8F5A-FF4DF62BA1E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conference.Service", "Conference.Service\Conference.Service.csproj", "{0AD440E9-D515-4477-A499-FA8901C5DEEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 		{E423F1A3-C519-4377-8F5A-FF4DF62BA1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E423F1A3-C519-4377-8F5A-FF4DF62BA1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E423F1A3-C519-4377-8F5A-FF4DF62BA1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AD440E9-D515-4477-A499-FA8901C5DEEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AD440E9-D515-4477-A499-FA8901C5DEEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AD440E9-D515-4477-A499-FA8901C5DEEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AD440E9-D515-4477-A499-FA8901C5DEEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
